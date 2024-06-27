@@ -1,0 +1,13 @@
+﻿cmake_minimum_required (VERSION 3.23)
+
+project ("nlohmannJson")
+set(CMAKE_CXX_STANDARD 20)
+
+set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+file(GLOB_RECURSE INCLUDE CONFIGURE_DEPENDS ${INCLUDE_DIR}/*.h)
+add_library(${PROJECT_NAME} INTERFACE)
+target_sources(${PROJECT_NAME} PUBLIC
+  FILE_SET HEADERS
+    BASE_DIRS ${INCLUDE_DIR}
+    FILES ${INCLUDE}
+)
